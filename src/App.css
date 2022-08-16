@@ -1,38 +1,165 @@
-.App {
-  text-align: center;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: #00000011;
+ 
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #3b281c75;
+  padding: 10px 0;
+  background-color: #3b281cea;
+  color: #fff;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+.food-container {
+  width: 600px;
+  padding: 20px 0;
+}
+.food-container form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: center;
+}
+.food-container form .input-div {
+  width: 100%;
+  text-align: center;
+}
+.food-container form .input-div input {
+  padding: 10px;
+  width: 90%;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #3b281c75;
+  outline: none;
+
+}
+.food-container form .btn-container button {
+  padding: 9px 25px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #3b281cda;
+  color: #fff;
+  border: 1px solid #3b281c75;
+}
+.food-container form .btn-container button:hover{
+  background-color: #3B281C;
+}
+
+.recipe-container{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px 0px 30px 0;
+  z-index: -1;
+}
+.recipe-list{
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.recipe-box{
+  border: 1px solid #3b281c75;
+  padding: 20px;
+  width: 350px;
+  margin: 5px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 5px;
+  z-index: -1;
 }
 
-.App-link {
-  color: #61dafb;
+.recipe-box p{
+  text-align: left !important;
+}
+.recipe-box .ingre li{
+  list-style-type: circle !important;
+  margin: 10px;
+  border-bottom: 1px solid #3b281c13;
+  padding: 5px 0;
+  
+}
+.recipe-box ul li {
+  list-style: none;
+  text-align: left !important;
+}
+.recipe-box img{
+  width: 160px;
+  border-radius: 100px;
+  border: 1px solid #3B281C;
+  padding: 5px;
+}
+.recipe-box h1{
+  font-size: 1.3rem;
+  margin: 10px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#emoji{
+  
+  text-align: center;
+  animation-name: emojifloat;
+  animation-duration: 6s; 
+  animation-iteration-count: infinite;
+  transition: all 5s linear;
+}
+
+@keyframes emojifloat {
+   0%{
+     transform: rotate(0deg);
+   }
+   25%{
+    transform: rotate(30deg);
+   }
+   50%{
+     transform: rotate(0deg);
+   }
+   100%{
+    transform: rotate(-30deg);
+   }
+}
+
+footer
+{ 
+  background-color: #3b281c3a;  
+  width: 100vw; 
+  
+}
+
+.footer-subhead
+{
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  /* background-color: #3b281c3a; */
+}
+.footer ul li{
+  display: inline-block;
+  margin: 0 10px;
+  list-style-type: none;
+}
+.footer ul li a{
+  color: #3B281C;
+  font-size: 1.3rem;
 }
