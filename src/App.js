@@ -9,7 +9,7 @@ function App() {
   const apiKey = "2243c7054e89240b91a8e40a2749021b";
   const [recipe, setRecipe] = useState([]);
   const [search, setSearch] = useState("");
-  const [query, setQuery] = useState("chicken");
+  const [query, setQuery] = useState("samosa");
   const [check, setcheck] = useState(Boolean);
 
   useEffect(() => {
@@ -22,6 +22,10 @@ function App() {
       .then((data) => {
         setcheck(data.more);
         setRecipe(data.hits);
+        console.log(data.hits);
+        console.log(data.hits[0].recipe.dishType[0]);
+        console.log(data.hits[0].recipe.mealType[0]);
+        console.log(data.hits[0].recipe.url);
       });
   }, [query]);
 
@@ -31,54 +35,73 @@ function App() {
 
   function searchRecipe(e) {
     e.preventDefault();
+    setSearch("");
     setQuery(search);
   }
 
-  return (
-    <>
-      <nav>
-        <h1>Food Recipe</h1>
-      </nav>
-      <div className="container">
-        <div className="food-container">
-          <form className="form" onSubmit={searchRecipe}>
-            <div className="input-div">
-              <input
-                type="text"
-                className="search"
-                placeholder="Search Recipe"
-                value={search}
-                onChange={searchHandler}
-              />
-            </div>
-            <div className="btn-container">
-              <button className="btn-search" type="submit">
-                Search
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div className="recipe-container">
-        {(check===true)?
-        <div className="recipe-list">
-          {recipe.map((eachRecipe, i) => (
-            <Recipe
-              title={eachRecipe.recipe.label}
-              calories={eachRecipe.recipe.calories}
-              image={eachRecipe.recipe.image}
-              cautions={eachRecipe.recipe.cautions[0]}
-              cuisineType={eachRecipe.recipe.cuisineType}
-              ingeriants={eachRecipe.recipe.ingredientLines}
-              key={i}
-              id={i}
-            />
-          ))}
-        </div> : <Emoji />}
-      </div>
+  const [loading, setLoading] = useState(true);
+  const spinner = document.getElementById("spinner");
+  if (spinner) {
+    setTimeout(() => {
+      spinner.style.display = "none";
+      setLoading(false);
+    }, 5000);
+  }
 
-      <Footer />
-    </>
+  return (
+    !loading && (
+      <>
+        <nav>
+          <h1>Food Recipe</h1>
+        </nav>
+        <div className="container">
+          <div className="food-container">
+            <form className="form" onSubmit={searchRecipe}>
+              <div className="input-div">
+                <input
+                  type="text"
+                  className="search"
+                  placeholder="Search Recipe"
+                  value={search}
+                  onChange={searchHandler}
+                  required
+                />
+              </div>
+              <div className="btn-container">
+                <button className="btn-search" type="submit">
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div className="recipe-container">
+          {check === true ? (
+            <div className="recipe-list">
+              {recipe.map((eachRecipe, i) => (
+                <Recipe
+                  title={eachRecipe.recipe.label}
+                  calories={eachRecipe.recipe.calories}
+                  image={eachRecipe.recipe.image}
+                  cautions={eachRecipe.recipe.cautions[0]}
+                  cuisineType={eachRecipe.recipe.cuisineType}
+                  ingeriants={eachRecipe.recipe.ingredientLines}
+                  dishType={eachRecipe.recipe.dishType[0]}
+                  mealType={eachRecipe.recipe.mealType[0]}
+                  url={eachRecipe.recipe.url}
+                  key={i}
+                  id={i}
+                />
+              ))}
+            </div>
+          ) : (
+            <Emoji />
+          )}
+        </div>
+
+        <Footer />
+      </>
+    )
   );
 }
 

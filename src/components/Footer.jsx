@@ -59,7 +59,7 @@ const Footer = () => {
 
       <div className="footer-subhead">
         <h5>
-          Created by Akash Khandelwal <i className="fas fa-heart"></i>{" "}
+          Created by Akash Khandelwal <i className="fas fa-heart"></i>
         </h5>
       </div>
     </footer>

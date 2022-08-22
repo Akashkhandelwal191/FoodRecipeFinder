@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -19,8 +20,68 @@ nav {
   border: 1px solid #3b281c75;
   padding: 10px 0;
   background-color: #3b281cea;
+  /* background-color: #3120E0; */
   color: #fff;
 }
+
+/* #btn{
+  cursor: pointer;
+  padding: 10px;
+  color:
+} */
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer;
+  border: none;
+}
+.button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0cf;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #008fb3;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.button:hover {
+  color: #fff;
+}
+.button:hover:before {
+  width: 100%;
+}
+
+
+.EmojiContainer h1
+{
+  font-family: 'Roboto', sans-serif;
+  color:#ffffffff;
+}
+
 .container {
   width: 100%;
   display: flex;
@@ -66,7 +127,7 @@ nav {
   display: flex;
   justify-content: center;
   padding: 20px 0px 30px 0;
-  z-index: -1;
+  /* z-index: -1; */
 }
 .recipe-list{
   width: 90%;
@@ -82,7 +143,6 @@ nav {
   text-align: center;
   background-color: #fff;
   border-radius: 5px;
-  z-index: -1;
 }
 
 .recipe-box p{
@@ -113,10 +173,12 @@ nav {
 #emoji{
   
   text-align: center;
-  animation-name: emojifloat;
+  /* animation-name: emojifloat; */
+  border-color: yellow;
   animation-duration: 6s; 
   animation-iteration-count: infinite;
   transition: all 5s linear;
+  
 }
 
 @keyframes emojifloat {
@@ -136,9 +198,10 @@ nav {
 
 footer
 { 
-  background-color: #3b281c3a;  
+  background-color: #3b281cea;   
   width: 100vw; 
-  
+  height: 200px;
+  color:white;
 }
 
 .footer-subhead
@@ -160,6 +223,6 @@ footer
   list-style-type: none;
 }
 .footer ul li a{
-  color: #3B281C;
+  color:white;
   font-size: 1.3rem;
 }
